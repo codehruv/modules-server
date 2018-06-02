@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'widget_tweaks',
+    'djcelery',
+    'djcelery_email',
 
     'accounts',
     'boards',
@@ -134,4 +136,16 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'SMTP_HOST'
+
+EMAIL_PORT = 'SMTP_PORT'
+
+EMAIL_HOST_USER = 'SMTP_USER'
+
+EMAIL_HOST_PASSWORD = 'SMTP_PASSWORD'
+
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
+
+CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672/'
+
