@@ -1,2 +1,4 @@
 Django==1.11.4
 django-widget-tweaks==1.4.1
+djcelery==3.2.0
+djcelery_email
